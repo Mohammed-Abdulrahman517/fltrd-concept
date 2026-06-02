@@ -18,6 +18,7 @@ scroll-behavior:smooth;
 body{
 background:var(--black);
 color:white;
+overflow-x:hidden;
 }
 
 .navbar{
@@ -28,7 +29,7 @@ padding:20px 50px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:transparent;
+background:rgba(0,0,0,.6);
 backdrop-filter:blur(10px);
 z-index:1000;
 }
@@ -50,9 +51,9 @@ text-decoration:none;
 }
 
 .hero{
-height:100vh;
-
+min-height:100vh;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
 text-align:center;
@@ -63,6 +64,7 @@ url("https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1920");
 
 background-size:cover;
 background-position:center;
+padding:120px 20px;
 }
 
 .hero-content h1{
@@ -86,6 +88,7 @@ padding:15px 35px;
 border-radius:40px;
 text-decoration:none;
 font-weight:bold;
+display:inline-block;
 }
 
 section{
@@ -95,6 +98,45 @@ padding:100px 10%;
 h2{
 margin-bottom:20px;
 color:var(--gold);
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:80px;
+padding:50px;
+text-align:center;
+background:#111;
+width:100%;
+}
+
+.stats h2{
+color:#C9A86A;
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.stats p{
+color:#ccc;
+}
+
+.about-modern{
+text-align:center;
+max-width:900px;
+margin:auto;
+padding:120px 20px;
+}
+
+.about-modern h2{
+font-size:3rem;
+color:#C9A86A;
+margin-bottom:30px;
+}
+
+.about-modern p{
+font-size:1.2rem;
+line-height:2;
+color:#d0d0d0;
 }
 
 .cards{
@@ -122,7 +164,6 @@ width:100%;
 height:300px;
 object-fit:cover;
 border-radius:20px;
-
 transition:.4s;
 cursor:pointer;
 }
@@ -132,144 +173,6 @@ transform:scale(1.03);
 filter:brightness(1.1);
 }
 
-.gallery img{
-transition:.4s;
-}
-
-.gallery img:hover{
-transform:scale(1.04);
-filter:brightness(1.1);
-}
-
-footer{
-background:black;
-padding:50px;
-text-align:center;
-}
-
-footer p{
-margin-top:10px;
-}
-
-@media(max-width:768px){
-
-.navbar ul{
-display:none;
-}
-
-.hero-content h1{
-font-size:8rem;
-letter-spacing:4px;
-font-weight:700;
-}
-
-.hero-content h2{
-font-size:2rem;
-}
-
-}
-.stats{
-display:flex;
-justify-content:center;
-gap:100px;
-padding:80px;
-text-align:center;
-background:#111;
-}
-
-.stats h2{
-color:#C9A86A;
-font-size:3rem;
-margin-bottom:10px;
-}
-
-.stats p{
-color:#ccc;
-}
-
-@media(max-width:768px){
-
-.stats{
-display:flex;
-justify-content:center;
-gap:80px;
-text-align:center;
-
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(15px);
-
-padding:40px;
-
-max-width:900px;
-
-margin:-80px auto 80px auto;
-
-border-radius:25px;
-
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.about-modern{
-text-align:center;
-max-width:900px;
-margin:auto;
-padding:120px 20px;
-}
-
-.about-modern h2{
-font-size:3rem;
-color:#C9A86A;
-margin-bottom:30px;
-}
-
-.about-modern p{
-font-size:1.2rem;
-line-height:2;
-color:#d0d0d0;
-}
-
-.stats{
-display:flex;
-justify-content:center;
-gap:80px;
-text-align:center;
-
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(15px);
-
-padding:40px;
-
-max-width:900px;
-
-margin:-80px auto 80px auto;
-
-border-radius:25px;
-
-border:1px solid rgba(255,255,255,0.08);
-}
-
-.stats h2{
-color:#C9A86A;
-font-size:3rem;
-}
-
-.stats p{
-color:#ccc;
-}
-
-@media(max-width:900px){
-
-.gallery{
-grid-template-columns:1fr;
-}
-
-.stats{
-flex-direction:column;
-gap:40px;
-}
-
-}
-
 .instagram{
 text-align:center;
 padding:100px 20px;
@@ -277,8 +180,6 @@ padding:100px 20px;
 
 .instagram h2{
 font-size:3rem;
-color:#C9A86A;
-margin-bottom:20px;
 }
 
 .instagram p{
@@ -296,53 +197,62 @@ font-weight:bold;
 .instagram a:hover{
 color:#C9A86A;
 }
-  @media (max-width: 768px){
+
+footer{
+background:black;
+padding:50px;
+text-align:center;
+}
+
+footer p{
+margin-top:10px;
+}
+
+@media (max-width:768px){
 
 .navbar{
-    padding:15px 20px;
+padding:15px 20px;
 }
 
 .navbar ul{
-    gap:15px;
-    font-size:14px;
+display:none;
 }
 
 .hero{
-    height:auto;
-    padding:120px 20px 60px;
+padding:120px 20px 80px;
 }
 
 .hero-content h1{
-    font-size:4rem;
+font-size:4rem;
 }
 
 .hero-content h2{
-    font-size:2rem;
+font-size:2rem;
 }
 
 .stats{
-    margin:40px auto;
-    grid-template-columns:1fr;
-    text-align:center;
+flex-direction:column;
+gap:30px;
+padding:40px 20px;
 }
 
 .gallery{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 }
 
 .gallery img{
-    height:250px;
-}
-
-.products{
-    grid-template-columns:1fr;
+height:250px;
 }
 
 .about-modern h2{
-    font-size:2rem;
+font-size:2rem;
 }
 
-.location iframe{
-    height:300px;
+.about-modern p{
+font-size:1rem;
+}
+
+.btn{
+padding:12px 25px;
 }
 }
